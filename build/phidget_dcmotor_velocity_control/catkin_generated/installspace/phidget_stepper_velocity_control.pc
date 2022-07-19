@@ -1,0 +1,8 @@
+prefix=/home/corobot/catkin_ws/install
+
+Name: phidget_stepper_velocity_control
+Description: Description of phidget_stepper_velocity_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

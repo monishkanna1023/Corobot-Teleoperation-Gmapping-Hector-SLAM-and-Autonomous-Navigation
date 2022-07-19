@@ -1,0 +1,46 @@
+#!/usr/bin/env python2
+
+import rospy
+import tty, sys, termios
+
+from std_msgs.msg import Float32
+
+def motor_ctl():
+    vel = 0
+    pub_vel = rospy.Publisher('velocity_pub', Float32, queue_size = 10)
+    rospy.init_node('motor', anonymous=True)
+    robot_rate = 10
+    rate = rospy.Rate(robot_rate)
+
+
+    filedescriptors = termios.tcgetattr(sys.stdin)
+    tty.setcbreak(sys.stdin)
+        
+    while not rospy.is_shutdown():
+        x=sys.stdin.read(1)[0]
+        pub_vel.publish(vel)
+        if x == "w":
+            print("moving forward")
+            vel = 0.1
+            
+        if x == "s":
+            print("moving reverse")
+            vel = -0.1
+           
+        if x == "q":
+            print("stop")
+            vel = 0
+            
+
+        if x == "o":
+            print("off")
+            vel = 0
+            
+            break
+
+        
+        rate.sleep()
+
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN,filedescriptors)
+    
+motor_ctl()

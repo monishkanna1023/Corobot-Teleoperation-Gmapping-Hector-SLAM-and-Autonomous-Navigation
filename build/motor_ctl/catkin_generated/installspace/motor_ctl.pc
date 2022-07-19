@@ -1,0 +1,8 @@
+prefix=/home/corobot/catkin_ws/install
+
+Name: motor_ctl
+Description: Description of motor_ctl
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmotor_ctl
+Requires: roscpp rospy std_msgs message_runtime
