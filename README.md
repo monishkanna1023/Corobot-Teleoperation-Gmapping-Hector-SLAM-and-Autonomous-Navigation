@@ -24,4 +24,5 @@ We started with a base CoroWare Corobot. It had an integrated system that ran on
 For the integration of the motors and encoders with the system, respective Phidget boards were used. 
 PhidgetMotorControl HC 1064, a high current motor control Phidget which could drive 2 DC motors, was used to interface the motors. PhidgetEncoder HighSpeed 1047, a 4-input encoder board, was used to interface the encoders.
 Since there was a limitation with the number of USB ports on the system, PhidgetInterfaceKit 1018, a Phidgets workhorse with 8 digital inputs, 8 digital outputs 6 USBs and 8 analogue voltage inputs, was used as a bridge between motor control and encoder board and the system.
-
+Rubber wheels were attached to the motor and the presence of a caster wheel provided our two-wheeled build with better support. 
+Consequently, a 12V Lead acid battery was integrated to make our robot run untethered. That gave us a run-time of about 25 minutes with 100% battery power. In order to implement obstacle avoidance, a RPLiDAR was used too.
